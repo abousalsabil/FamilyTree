@@ -67,7 +67,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('شجرة العائلة (تطوير تفاعلي)'),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/icons/family_circle_icon.png',
+              height: 36,
+              width: 36,
+            ),
+            const SizedBox(width: 10),
+            const Text('شجرة العائلة'),
+          ],
+        ),
         centerTitle: true,
         actions: [
           IconButton(
@@ -88,9 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
             UserAccountsDrawerHeader(
               accountName: Text(user?.name ?? 'زائر'),
               accountEmail: Text(user?.email ?? 'غير مسجل'),
-              currentAccountPicture: const CircleAvatar(
-                child: Icon(Icons.person),
+              currentAccountPicture: ClipOval(
+                child: Image.asset('assets/icons/family_circle_icon.png'),
               ),
+              decoration: const BoxDecoration(color: Colors.teal),
             ),
             ListTile(
               leading: const Icon(Icons.account_tree),
